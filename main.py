@@ -4,10 +4,10 @@ from game_data import data
 from art import logo, vs
 
 # Figure out how to format data from dictionary
-def comparison(random, a_or_b):
+def comparison(choice_a_or_b, a_or_b):
     '''Grabs data and returns formatted result'''
     # choice = random.choice(data)
-    choice = random
+    choice = choice_a_or_b
     name = choice['name']
     f_count = choice['follower_count']
     desc = choice['description']
@@ -32,18 +32,18 @@ def game():
     winning_choice = None
     while True:
         random.shuffle(data)
-        random_a = data.pop()
-        random_b = data.pop()
+        choice_a = data.pop()
+        choice_b = data.pop()
         clear()
         print(logo)
 
         if score > 0:
-            random_a = winning_choice
+            choice_a = winning_choice
             print(f"You're right! Current score: {score}")
 
-        a = comparison(random_a, "Compare A")
+        a = comparison(choice_a, "Compare A")
         print(vs)
-        b = comparison(random_b, "Against B")
+        b = comparison(choice_b, "Against B")
 
         higher_count = calculate_count(a, b)
         print(a, b)
@@ -55,13 +55,13 @@ def game():
             guess = a
             if guess == higher_count:
                 score += 1
-                winning_choice = a
+                winning_choice = choice_a
                 continue
         elif guess == 'B':
             guess = b
             if guess == higher_count:
                 score += 1
-                winning_choice = b
+                winning_choice = choice_b
                 continue
         else:
             break
