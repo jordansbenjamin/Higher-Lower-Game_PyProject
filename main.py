@@ -20,12 +20,6 @@ def calculate_count(a, b):
     '''Checks higher follower count'''
     return a if a > b else b
 
-# def check_guess(a_or_b, score, higher_count):
-#     guess = a_or_b
-#     if guess == higher_count:
-#         score += 1
-#         winning_choice = a_or_b
-
 def game():
     '''Main game function that handles all the games logic and flow'''
     score = 0
@@ -51,18 +45,17 @@ def game():
         guess = input("Who has more followers? Type 'A' or 'B': ").upper()
 
         if guess == 'A':
-            # check_guess(a, score, higher_count)
             guess = a
             if guess == higher_count:
                 score += 1
                 winning_choice = choice_a
-                continue
+            continue
         elif guess == 'B':
             guess = b
             if guess == higher_count:
                 score += 1
                 winning_choice = choice_b
-                continue
+            continue
         else:
             break
         clear()
