@@ -49,18 +49,24 @@ def game():
             if guess == higher_count:
                 score += 1
                 winning_choice = choice_a
-            continue
+                continue
+            else:
+                clear()
+                print(logo)
+                print(f"Sorry, that's wrong. Final score: {score}")
+                return
         elif guess == 'B':
             guess = b
             if guess == higher_count:
                 score += 1
                 winning_choice = choice_b
-            continue
-        else:
-            break
-        clear()
-        print(logo)
-        print(f"Sorry, that's wrong. Final score: {score}")
-        return
+                continue
+            else:
+                clear()
+                print(logo)
+                print(f"Sorry, that's wrong. Final score: {score}")
+                return
+        # elif guess != a or guess != b:
+        #     break
 
 game()
