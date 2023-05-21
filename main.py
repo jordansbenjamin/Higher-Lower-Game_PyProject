@@ -3,10 +3,8 @@ from clear import clear
 from game_data import data
 from art import logo, vs
 
-# Figure out how to format data from dictionary
 def comparison(choice_a_or_b, a_or_b):
     '''Grabs data and returns formatted result'''
-    # choice = random.choice(data)
     choice = choice_a_or_b
     name = choice['name']
     f_count = choice['follower_count']
@@ -66,7 +64,5 @@ def game():
                 print(logo)
                 print(f"Sorry, that's wrong. Final score: {score}")
                 return
-        # elif guess != a or guess != b:
-        #     break
 
 game()
