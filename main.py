@@ -13,11 +13,14 @@ def comparison(choice_a_or_b, a_or_b):
     print(f"{a_or_b}: {name}, a {desc}, from {country}.")
     return f_count
 
-
 def calculate_count(a, b):
     '''Checks higher follower count'''
     return a if a > b else b
 
+def check_guess(choices, score):
+    score += 1
+    winning_choice = choices
+    return score, winning_choice
 
 def game():
     '''Main game function that handles all the games logic and flow'''
@@ -47,15 +50,13 @@ def game():
             guess = a
             if b > guess:
                 break
-            score += 1
-            winning_choice = choice_a
+            score, winning_choice = check_guess(choice_a, score)
             continue
         elif guess == 'B':
             guess = b
             if a > guess:
                 break
-            score += 1
-            winning_choice = choice_b
+            score, winning_choice = check_guess(choice_b, score)
             continue
         
     clear()
