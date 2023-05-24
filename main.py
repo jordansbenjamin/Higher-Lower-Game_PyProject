@@ -18,6 +18,7 @@ def calculate_count(a, b):
     '''Checks higher follower count'''
     return a if a > b else b
 
+
 def game():
     '''Main game function that handles all the games logic and flow'''
     score = 0
@@ -44,25 +45,22 @@ def game():
 
         if guess == 'A':
             guess = a
-            if guess == higher_count:
-                score += 1
-                winning_choice = choice_a
-                continue
-            else:
-                clear()
-                print(logo)
-                print(f"Sorry, that's wrong. Final score: {score}")
-                return
+            if b > guess:
+                break
+            score += 1
+            winning_choice = choice_a
+            continue
         elif guess == 'B':
             guess = b
-            if guess == higher_count:
-                score += 1
-                winning_choice = choice_b
-                continue
-            else:
-                clear()
-                print(logo)
-                print(f"Sorry, that's wrong. Final score: {score}")
-                return
+            if a > guess:
+                break
+            score += 1
+            winning_choice = choice_b
+            continue
+        
+    clear()
+    print(logo)
+    print(f"Sorry, that's wrong. Final score: {score}")
+    return
 
 game()
